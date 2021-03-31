@@ -31,25 +31,27 @@
 }
 
 .inbox {
-    height: 300px;
-    background-color: #ddd;
-    border: 1px solid #ddd;
+  height: 300px;
+  background-color: #ddd;
+  border: 1px solid #ddd;
 }
 
 .inbox__people {
-    height: 100%;
-    background-color: white;
+  height: 100%;
+  background-color: white;
 }
 
 .messages__history {
-    width: 100%;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .fallback {
-    width: 100%;
+  width: 100%;
 }
 .fallback button {
-    float: right;
+  float: right;
 }
 
 

@@ -5,16 +5,14 @@ const morgan = require('morgan')
 const _CONST = require('./app/config/constant')
 const app = express();
 const http = require('http');
-
+const db = require("./app/models");
+db.sequelize.sync();
 var session = require('express-session')
-
-
 
 var corsOptions = {
     origin: "http://localhost:8081" // co thể sau này nó là resfult api, cứ để sẵn
 }
 app.use(morgan('combined')) //theo dõi log GET, POST...
-
 app.use(cors(corsOptions)); //cross domain...
 
 app.use(express.static('public', { 'extensions': ['jsx'] }));
@@ -33,6 +31,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./app/routes/')(app); //importing route
+require("./app/routes/users.route")(app);
+
 
 const PORT = process.env.PORT || _CONST.PORT;
 var server = http.createServer(app).listen(PORT, function () {
